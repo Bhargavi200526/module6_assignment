@@ -1,54 +1,113 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Module 6 Assignment: Routing and Dashboard Setup
 
-Currently, two official plugins are available:
+Overview
+This project is a Learning Management System (LMS) frontend built with React, TypeScript, TanStack Router, and Tailwind CSS. The application demonstrates modern routing, authentication, and dynamic, role-based dashboard rendering for three user types: Student, Instructor, and Admin.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+Modern Routing: Uses TanStack Router for navigation between Home, Login, Register, and Dashboard pages.
 
-## Expanding the ESLint configuration
+Role-Based Dashboards: Displays a unique dashboard layout for each user role (Student, Instructor, Admin).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+JWT-based Authentication: Simulates authentication and role detection using JWT tokens.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Responsive UI: All pages are styled with Tailwind CSS, featuring dark mode, gradients, and interactive effects.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Component Modularity: Each dashboard and page is implemented as a separate, reusable React component.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+vite/
+  └─ src/
+  
+      ├─ assets/ 
+      
+      ├─ pages/
+      
+      │    ├─ dashboards/
+      
+      │    │    ├─ AdminDashboard.tsx
+      
+      │    │    ├─ InstructorDashboard.tsx
+
+      │    │    └─ StudentDashboard.tsx
+      
+      │    ├─ Home.tsx
+      
+      │    ├─ Login.tsx
+      
+      │    ├─ Register.tsx
+      
+      │    └─ Dashboard.tsx
+      
+      ├─ routes/
+      
+      │    └─ router.tsx
+      
+      ├─ utils/
+      
+      │    └─ auth.ts
+      
+      ├─ App.tsx
+      
+      ├─ index.css
+      
+      └─ main.tsx
+      
+  ├─ public
+  
+  ├─ package.json
+  
+  ├─ tailwind.config.js
+  
+  └─ README.md
+
+## Implementation Details
+1. Routing Setup
+All navigation is handled by TanStack Router.
+
+Main routes include: Home (/), Login (/login), Register (/register), and Dashboard (/dashboard).
+
+The router is configured in src/routes/router.tsx and provided to the app in main.tsx.
+
+2. Authentication & Role Management
+Authentication is simulated using JWT tokens stored in localStorage.
+
+On login, a dummy JWT is generated containing the user’s role.
+
+Helper functions in src/utils/auth.ts decode the JWT and extract the user’s role for dashboard rendering and route protection.
+
+3. Role-Based Dashboard Rendering
+The Dashboard page (src/pages/Dashboard.tsx) checks the user’s role and displays the corresponding dashboard component:
+
+StudentDashboard.tsx
+
+InstructorDashboard.tsx
+
+AdminDashboard.tsx
+
+Each dashboard is visually distinct and tailored to its role, featuring cards, stats, and navigation relevant to the user type.
+
+4. UI/UX and Styling
+All pages use a dark/gradient theme for consistency.
+
+Tailwind CSS utility classes are used for rapid styling, responsive layouts, and interactive effects (hover, focus, transitions).
+
+Home, Login, and Register pages are visually engaging, with animated backgrounds and modern form elements.
+
+5. Demo Authentication
+For demonstration, any mails will work and we should login with the same as registered details
+
+
+## Prerequisites
+
+Node.js and npm installed on your machine.
+
+
+### Notes
+No backend/API is required for this assignment. All authentication and user data are simulated in the frontend.
+
+If backend integration is required, a simple Express server can be added for real registration and login.
+
+The UI is fully responsive and works on all modern browsers.
