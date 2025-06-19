@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+---
+
 ## Module 6 Assignment: Routing and Dashboard Setup
 
 Overview
@@ -15,6 +17,8 @@ JWT-based Authentication: Simulates authentication and role detection using JWT 
 Responsive UI: All pages are styled with Tailwind CSS, featuring dark mode, gradients, and interactive effects.
 
 Component Modularity: Each dashboard and page is implemented as a separate, reusable React component.
+
+--- 
 
 ## Project Structure
 
@@ -63,41 +67,44 @@ vite/
   
   └─ README.md
 
-## Implementation Details
+---
+
+## Implementation Detail
 1. Routing Setup
-All navigation is handled by TanStack Router.
-
-Main routes include: Home (/), Login (/login), Register (/register), and Dashboard (/dashboard).
-
-The router is configured in src/routes/router.tsx and provided to the app in main.tsx.
+  All navigation is handled by TanStack Router.
+  
+  Main routes include: Home (/), Login (/login), Register (/register), and Dashboard            (/dashboard).
+  
+  The router is configured in src/routes/router.tsx and provided to the app in main.tsx.
 
 2. Authentication & Role Management
-Authentication is simulated using JWT tokens stored in localStorage.
-
-On login, a dummy JWT is generated containing the user’s role.
-
-Helper functions in src/utils/auth.ts decode the JWT and extract the user’s role for dashboard rendering and route protection.
+  Authentication is simulated using JWT tokens stored in localStorage.
+  
+  On login, a dummy JWT is generated containing the user’s role.
+  
+  Helper functions in src/utils/auth.ts decode the JWT and extract the user’s role for          dashboard rendering and route protection.
 
 3. Role-Based Dashboard Rendering
-The Dashboard page (src/pages/Dashboard.tsx) checks the user’s role and displays the corresponding dashboard component:
-
-StudentDashboard.tsx
-
-InstructorDashboard.tsx
-
-AdminDashboard.tsx
-
-Each dashboard is visually distinct and tailored to its role, featuring cards, stats, and navigation relevant to the user type.
+  The Dashboard page (src/pages/Dashboard.tsx) checks the user’s role and displays the
+   corresponding dashboard component:
+  
+  StudentDashboard.tsx
+  
+  InstructorDashboard.tsx
+  
+  AdminDashboard.tsx
+  
+  Each dashboard is visually distinct and tailored to its role, featuring cards, stats, and     navigation relevant to the user type.
 
 4. UI/UX and Styling
-All pages use a dark/gradient theme for consistency.
-
-Tailwind CSS utility classes are used for rapid styling, responsive layouts, and interactive effects (hover, focus, transitions).
-
-Home, Login, and Register pages are visually engaging, with animated backgrounds and modern form elements.
+  All pages use a dark/gradient theme for consistency.
+  
+  Tailwind CSS utility classes are used for rapid styling, responsive layouts, and              interactive effects (hover, focus, transitions).
+  
+  Home, Login, and Register pages are visually engaging, with animated backgrounds and modern   form elements.
 
 5. Demo Authentication
-For demonstration, any mails will work and we should login with the same as registered details
+   For demonstration, any mails will work and we should login with the same as registered       details
 
 
 ## Prerequisites
