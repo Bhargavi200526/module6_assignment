@@ -85,8 +85,7 @@ vite/
   Helper functions in src/utils/auth.ts decode the JWT and extract the user’s role for          dashboard rendering and route protection.
 
 3. Role-Based Dashboard Rendering
-  The Dashboard page (src/pages/Dashboard.tsx) checks the user’s role and displays the
-   corresponding dashboard component:
+  The Dashboard page (src/pages/Dashboard.tsx) checks the user’s role and displays the corresponding dashboard component:
   
   StudentDashboard.tsx
   
@@ -94,17 +93,17 @@ vite/
   
   AdminDashboard.tsx
   
-  Each dashboard is visually distinct and tailored to its role, featuring cards, stats, and     navigation relevant to the user type.
+  Each dashboard is visually distinct and tailored to its role, featuring cards, stats, and navigation relevant to the user type.
 
 4. UI/UX and Styling
   All pages use a dark/gradient theme for consistency.
   
-  Tailwind CSS utility classes are used for rapid styling, responsive layouts, and              interactive effects (hover, focus, transitions).
+  Tailwind CSS utility classes are used for rapid styling, responsive layouts, and interactive effects (hover, focus, transitions).
   
   Home, Login, and Register pages are visually engaging, with animated backgrounds and modern   form elements.
 
 5. Demo Authentication
-   For demonstration, any mails will work and we should login with the same as registered       details
+   For demonstration, any mails will work and we should login with the same as registered details
 
 
 ## Prerequisites
